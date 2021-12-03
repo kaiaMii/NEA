@@ -1,0 +1,186 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+    scroll-behavior: smooth;
+    /*the scroll behaviour makes sure the scroll is smooth and the font family can be changed */
+}
+
+.navbar {
+    background: #131313;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    /* can make the font different size to 1.2 */
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    /* z-index value 999 ensures navbar always above everything on the page */ 
+}
+
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    /* making margin and padding 0 auto makes top right bottom left all 0 instead of writing 0 0 0 0 */
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+#navbar__logo {
+    /* making the background a gradient */
+    background-color: #77d4ff;
+    background-image: linear-gradient(to top, #b3f5ab 0%, #1cc5bf 100%);
+    /* this next bit clips the gradient colouring to just the text of the navbar logo */
+    -webkit-background-clip: text;
+    -moz-background-clip:  text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    /* text-decoration: none; gets rid of the underline on the link */
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.navbar__item {
+    height: 80px;
+}
+
+.navbar__links {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 125px;
+    text-decoration: none;
+    height: 100%;
+    transition: all 0.35s ease;
+}
+
+.navbar__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+/*styling the sign-up button */
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #833ab4;
+    /* setting the colours and the gradients */
+    background-image: -webkit-linear-gradient(to right, #b3f5ab,#1cc5bf);
+    background-image: linear-gradient(to right, #b3f5ab,#1cc5bf);
+    /* making the text of the button white */
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+/*this changes the colour of the links when the cursor hovers around it */
+
+.navbar__links:hover {
+    color: #248fd6;
+    transition: all 0.35s ease;
+}
+
+/* starting with the media querey */
+@media screen and (max-width: 960px) {
+    .navbar__container {
+        display: flex;
+        justify-content: space-between;
+        height: 80px;
+        z-index: 1;
+        width: 100%;
+        max-width: 1300px;
+        padding: 0;
+    }
+
+    .navbar__menu {
+        /* creating the dropdown effect and setting it to start at the top */
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+       /* top: -1000px; */
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: -1;
+        background: #131313
+    }
+
+    .navbar__menu.active {
+        background: #13131313;
+        top: 100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 99;
+        height: 60vh;
+        font-size: 1.6rem;
+    }
+
+    #navbar__logo {
+        padding-left: 25px;
+    }
+    
+    .navbar__toggle .bar {
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        transition: all 0.3s ease-in-out;
+        background: #fff;
+    }
+
+    .navbar__item {
+        width: 100%;
+    }
+
+    .navbar__links {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    .navbar__btn {
+        padding-bottom: 2rem;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 80px;
+        margin: 0;
+    }
+    
+    #mobile-menu {
+        position: absolute;
+
+    }
+}
